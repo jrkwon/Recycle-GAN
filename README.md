@@ -49,13 +49,28 @@ After activating the `recycle-gan` environment, the prompt will have `(recycle-g
 
 ## Training
 
+### Visdom Visualization Server
+
+Open a terminal and start visdom visualization server.
+
+```
+(recycle-gan) $ python -m visdom.server
+```
+
+### Start Training
+Open another terminal and start a training with a dataset name.
+
 Use the script in the `scripts` folder to train. The following example is for a training from Oliver to Colbert.
  
 ```
 (recycle-gan) $ sh ./scripts/train_recycle_gan.sh OliverColbert
 ```
 
+### Visdom
 
+Open a web browser and go to `localhost:8097`. Then you will see something like below.
+
+![ ](/home/jaerock/Documents/Recycle-GAN/README.img/example_visdom.png  "Example")
 
 
 ---

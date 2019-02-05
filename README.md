@@ -72,6 +72,14 @@ Open a web browser and go to `localhost:8097`. Then you will see something like 
 
 ![ ](./README.img/example_visdom.png  "Example")
 
+## More Details about the Code Structure and Training/Test
+
+You can find them from [CycleGAN and pix2pix](https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix).
+
+- [Code Structure](https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix/blob/master/docs/overview.md)
+- [Training/Test Tips](https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix/blob/master/docs/tips.md)
+- [Datasets Folder Structure](https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix/blob/master/docs/datasets.md)
+
 
 ---
 

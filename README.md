@@ -1,5 +1,67 @@
 # Recycle-GAN :Unsupervised Video Retargeting 
 
+Here, I would like to test Recycle-GAN especially with faces. Anaconda is being used to maintain an environment for python packages.
+
+## Prepare the Environment
+
+I assume CUDA and Anaconda are already installed.
+
+### Clone this repo
+```
+$ git clone https://github.com/jrkwon/Recycle-GAN
+```
+### Create a Conda Environment
+```
+$ conda create recycle-gan
+```
+
+### Activate the Conda Environment
+```
+$ source activate recycle-gan
+```
+After activating the `recycle-gan` environment, the prompt will have `(recycle-gan)`.
+
+### Install Required Packages
+
+- python 3.5+
+- pytorch 0.4.1
+- torchvision 0.2.1
+- pillow 5.4.1
+- cython 0.28.5
+- visdom 0.1.8.8
+- dominate 2.3.5
+
+```
+(recycle-gan) $ conda install pytorch=0.4.1 torchvision=0.2.1 pillow=5.4.1 cython=0.28.5 visom=0.1.8.8 dominate=2.3.4
+```
+
+### Prepare for Datasets
+
+- Download face datasets from [here](https://www.dropbox.com/s/s6kzovbrevin5tr/faces.tar.gz?dl=0)
+- Create  the `datasets` folder.
+```
+(recycle-gan) $ mkdir datasets
+```
+- Untar the `faces.tar.gz`
+```
+(recycle-gan) $ tar -xzf ~/Download/faces.tar.gz ./datasets/
+```
+
+## Training
+
+Use the script in the `scripts` folder to train. The following example is for a training from Oliver to Colbert.
+ 
+```
+(recycle-gan) $ sh ./scripts/train_recycle_gan.sh OliverColbert
+```
+
+
+
+
+---
+
+## Followings are from the original repository
+
 This repository provides the code for our work on [unsupervised video retargeting](http://www.cs.cmu.edu/~aayushb/Recycle-GAN/). 
 
 ```make

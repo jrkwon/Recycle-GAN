@@ -70,7 +70,7 @@ Use the script in the `scripts` folder to train. The following example is for a 
 
 Open a web browser and go to `localhost:8097`. Then you will see something like below.
 
-![ ](/home/jaerock/Documents/Recycle-GAN/README.img/example_visdom.png  "Example")
+![ ](./README.img/example_visdom.png  "Example")
 
 
 ---

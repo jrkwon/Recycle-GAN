@@ -96,7 +96,7 @@ class CycleGANModel(BaseModel):
             self.rec_A = self.netG_B(fake_B).data
             self.fake_B = fake_B.data
         with torch.no_grad():
-            real_B = Variable(self.input_B, volatile=True)
+            real_B = Variable(self.input_B)
             fake_A = self.netG_B(real_B)
             self.rec_B = self.netG_A(fake_A).data
             self.fake_A = fake_A.data

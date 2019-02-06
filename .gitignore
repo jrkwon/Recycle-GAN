@@ -1,5 +1,6 @@
 # too big to have
 datasets/
+results/
 
 # training models
 checkpoints/

@@ -12,7 +12,7 @@ $ git clone https://github.com/jrkwon/Recycle-GAN
 ```
 ### Create a Conda Environment
 ```
-$ conda create recycle-gan
+$ conda create -n recycle-gan
 ```
 
 ### Activate the Conda Environment
@@ -32,7 +32,7 @@ After activating the `recycle-gan` environment, the prompt will have `(recycle-g
 - dominate 2.3.5
 
 ```
-(recycle-gan) $ conda install pytorch=0.4.1 torchvision=0.2.1 pillow=5.4.1 cython=0.28.5 visom=0.1.8.8 dominate=2.3.4
+(recycle-gan) $ conda install pytorch=0.4.1 torchvision=0.2.1 pillow=5.4.1 cython=0.28.5 visdom=0.1.8.8 dominate=2.3.4
 ```
 
 ### Prepare for Datasets

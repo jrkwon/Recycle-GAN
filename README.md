@@ -4,7 +4,7 @@ Here, I would like to test Recycle-GAN especially with faces. Anaconda is being 
 
 ## Prepare he Environment
 
-I assume CUDA and Anaconda are already installed.
+I assume CUDA 9.1 and Anaconda are already installed.
 
 ### Clone this repo
 ```
@@ -34,6 +34,11 @@ After activating the `recycle-gan` environment, the prompt will have `(recycle-g
 ```
 (recycle-gan) $ conda install pytorch=0.4.1 torchvision=0.2.1 pillow=5.4.1 cython=0.28.5 visdom=0.1.8.8 dominate=2.3.4
 ```
+#### About PyTorch 1.0.0 and CUDA
+
+Some PyTorch modules do not support CUDA 8.0 and CUDA 9.0. If you see CuDNN error in a training, you may install 
+- PyTorch 1.0.0 with CUDA 10.
+- PyTorch 0.4.1 with CUDA 9.1+
 
 ### Prepare for Datasets
 

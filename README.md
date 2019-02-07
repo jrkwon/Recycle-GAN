@@ -2,7 +2,7 @@
 
 Here, I would like to test Recycle-GAN especially with faces. Anaconda is being used to maintain an environment for python packages.
 
-## Prepare the Environment
+## Prepare he Environment
 
 I assume CUDA and Anaconda are already installed.
 
@@ -60,11 +60,12 @@ Open a terminal and start visdom visualization server.
 ### Start Training
 Open another terminal and start a training with a dataset name.
 
-Use the script in the `scripts` folder to train. The following example is for a training from Oliver to Colbert.
+Use the script in the `scripts` folder to train.
  
 ```
-(recycle-gan) $ sh ./scripts/train_recycle_gan.sh OliverColbert
+(recycle-gan) $ sh ./scripts/train_recycle_gan.sh DataSetName
 ```
+The `DataSetName` is a folder name that has `trainA` and `trainB` folders (the default setting for the dataset folder configuration is _unaligned_ which means that there are two separate folders for the source and target).
 
 ### Visdom
 
@@ -80,6 +81,59 @@ You can find them from [CycleGAN and pix2pix](https://github.com/junyanz/pytorch
 - [Training/Test Tips](https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix/blob/master/docs/tips.md)
 - [Datasets Folder Structure](https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix/blob/master/docs/datasets.md)
 
+## How to Test a Trained Model
+
+You may stop the training if the losses are not decreasing any more.
+
+```
+sh scripts/test_recycle_gan.sh DataSetName
+```
+The `DataSetName` was used to create a trained PyTorch model file when the training starts. The default path to the models is `./checkpoints/DataSetName`. Thus this script for testing looks up the folder where the model files are saved and use the latest one by default.
+
+The default setting of the number of images to process is 100. You may change the number inside `test_recyle_gan.sh`. 
+
+The test process will create an output folder whose name is `./results/DataSetName/test_latest/images/`. You can take a look at the real-fake image pairs from each epoch through `index.html` in the folder by using a Web browser.
+
+The `images` folder has generated images. Their names are as belows.
+
+```
+ImageName_real_A.png
+ImageName_fake_B.png
+imageName_real_B.png
+ImageName_fake_A.png
+....
+```
+
+`ImageName_real_A` was an input to generate `ImageName_fake_B`. And `ImageName_real_B` was used to create `ImageName_fake_A`.
+
+Thus, if you want to see the performance of the GAN from A to B (use A as a source and B as a target), you can create two videos and a side-by-side video using ffmpeg as follows. I assume the test image names are five digits with zero padding (e.g. 00000.png, 00001.png, .... in the sequential order).
+
+
+I added two scripts to make a process to create videos easier.
+
+The script below will create two videos (real_A.mp4 and fake_B.mp4) and one side-by-side video (real_A_fake_B.mp4)
+```
+$ sh ./scripts/create_video_real_A_fake_B.sh DataSetName
+```
+
+If you want to make a video from B to A, use this script below.
+```
+$ sh ./scripts/create_video_real_B_fake_A.sh DataSetName
+```
+
+Here are videos that I created. I used a training model from epoch 13 to create the images.
+
+### Real A (Obama) to Fake B (Trump)
+
+Here, the left Obama is a real and the right Trump is generated fake based on the Obama videos. 
+
+[![Real A to Fake B](https://img.youtube.com/vi/61doJbwKoAE/0.jpg)](https://youtu.be/61doJbwKoAE)
+
+### Real B (Trump) to Fake A (Obama)
+
+The left Trump is a real and the right Obama is generated fake based on the Trump videos.
+
+[![Real B to Fake A](https://img.youtube.com/vi/TOcK7sHphng/0.jpg)](https://youtu.be/TOcK7sHphng)
 
 ---
 

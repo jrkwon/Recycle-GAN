@@ -86,7 +86,7 @@ You can find them from [CycleGAN and pix2pix](https://github.com/junyanz/pytorch
 You may stop the training if the losses are not decreasing any more.
 
 ```
-sh scripts/test_recycle_gan.sh DataSetName
+(recycle-gan) $ sh scripts/test_recycle_gan.sh DataSetName
 ```
 The `DataSetName` was used to create a trained PyTorch model file when the training starts. The default path to the models is `./checkpoints/DataSetName`. Thus this script for testing looks up the folder where the model files are saved and use the latest one by default.
 
@@ -109,16 +109,16 @@ ImageName_fake_A.png
 Thus, if you want to see the performance of the GAN from A to B (use A as a source and B as a target), you can create two videos and a side-by-side video using ffmpeg as follows. I assume the test image names are five digits with zero padding (e.g. 00000.png, 00001.png, .... in the sequential order).
 
 
-I added two scripts to make a process to create videos easier.
+I added two scripts to make a process to create videos easier. `ffmpeg` was used inside the script to create the videos.
 
 The script below will create two videos (real_A.mp4 and fake_B.mp4) and one side-by-side video (real_A_fake_B.mp4)
 ```
-$ sh ./scripts/create_video_real_A_fake_B.sh DataSetName
+(recycle-gan) $ sh ./scripts/create_video_real_A_fake_B.sh DataSetName
 ```
 
 If you want to make a video from B to A, use this script below.
 ```
-$ sh ./scripts/create_video_real_B_fake_A.sh DataSetName
+(recycle-gan) $ sh ./scripts/create_video_real_B_fake_A.sh DataSetName
 ```
 
 Here are videos that I created. I used a training model from epoch 13 to create the images.
@@ -135,9 +135,16 @@ The left Trump is a real and the right Obama is generated fake based on the Trum
 
 [![Real B to Fake A](https://img.youtube.com/vi/TOcK7sHphng/0.jpg)](https://youtu.be/TOcK7sHphng)
 
+  
+---
+
 ---
 
 ## Followings are from the original repository
+
+---
+# Recycle-GAN :Unsupervised Video Retargeting 
+
 
 This repository provides the code for our work on [unsupervised video retargeting](http://www.cs.cmu.edu/~aayushb/Recycle-GAN/). 
 

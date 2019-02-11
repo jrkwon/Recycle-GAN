@@ -31,12 +31,18 @@ After activating the `recycle-gan` environment, the prompt will have `(recycle-g
 - visdom 0.1.8.8
 - dominate 2.3.5
 
+If `conda install` cannot find `visdom` and `dominate`, you need to add the `conda-forge` channel.
+
+```
+(recycle-gan) $ conda config --add channels conda-forge
+```
+
 ```
 (recycle-gan) $ conda install pytorch=0.4.1 torchvision=0.2.1 pillow=5.4.1 cython=0.28.5 visdom=0.1.8.8 dominate=2.3.4
 ```
 #### About CUDA 8.0 and 9.0
 
-Some PyTorch modules do not support CUDA 8.0 and CUDA 9.0. If you see CuDNN error in a training, you may install 
+Some PyTorch modules do not support CUDA 8.0 and CUDA 9.0. If you see CuDNN error in a training, you may need to install 
 - PyTorch 1.0.0 with CUDA 10.
 - PyTorch 0.4.1 with CUDA 9.1+
 
